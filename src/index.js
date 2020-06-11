@@ -1,15 +1,29 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-const image = 'https://picsum.photos/200'
 
-const imageCustomize = {
-    border: '2px solid black', // values in string
-    boxShadow: ' 3px 3px 5px 6px #ccc'
+let time = new Date(2020,11,20);
+let timeSet = time.getHours();
+
+if(timeSet >0 && timeSet<=12){
+  var greetMsg = 'Good Morning';
+  var colour = {
+color : 'red'
+  }
 }
-
+else if(timeSet >12 && timeSet<=18){
+   greetMsg = 'Good Afternoon';
+    colour = {
+    color : 'green'
+      }
+}
+else{
+  greetMsg = 'Good Night'
+   colour = {
+    color : 'blue'
+      }
+}
 ReactDom.render(
 <div>
-  <img style={imageCustomize} // style={{object}} object contain css property
-  alt='nature' src={image+'?grayscale'}/>
+  <h1 className='heading' style={colour}> {greetMsg} </h1>
   </div>, document.getElementById('root'));
