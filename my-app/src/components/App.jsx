@@ -1,5 +1,6 @@
 import React from "react";
-
+import Avatar from "./Avatar";
+import Info from "./Info";
 
 function App(props) {
   return (
@@ -7,14 +8,10 @@ function App(props) {
       <div className="card">
         <div className="top">
           <h2 className='name'>{props.name}</h2>
-          <img className='circle-img'
-            src={props.imgURL}
-            alt="avatar_img"
-          />
+          <Avatar imgURL={props.imgURL}/>
         </div>
         <div className="bottom">
-          <p className='info'>{props.contact}</p>
-          <p className='info'>{props.email}</p>
+       <Info contact={props.contact} email={props.email} />
         </div>
       </div>
     </div>

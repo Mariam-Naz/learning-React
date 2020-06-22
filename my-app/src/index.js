@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
+import Avatar from "./components/Avatar";
 import contacts from "./contact"
 ReactDOM.render(
   <div>
    <h1 className="heading">My Contacts</h1>
+   <Avatar imgURL='https://media.gettyimages.com/photos/drone-photo-of-lahore-city-pakistan-picture-id806900368?s=612x612'/>
     <App name = {contacts[0].name} imgURL = {contacts[0].imgURL} contact={contacts[0].phone} email = {contacts[0].email}  />
     <App name = {contacts[1].name} imgURL = {contacts[1].imgURL} contact={contacts[1].phone} email = {contacts[1].email}  />
     <App name = {contacts[2].name} imgURL = {contacts[2].imgURL} contact={contacts[2].phone} email = {contacts[2].email}  />
