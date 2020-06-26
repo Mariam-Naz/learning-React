@@ -1,19 +1,25 @@
 import React from "react";
-import Avatar from "./Avatar";
-import Info from "./Info";
+import Emoji from "./Emoji";
+import emojipedias from "../emojipedia.js"
+
+function creatEmoji(emojipedia){
+  return <Emoji
+    key = {emojipedia.id}
+    emoji = {emojipedia.emoji}
+    name = {emojipedia.name}
+    meaning = {(emojipedia.meaning).substr(0,100)}
+  />
+}
 
 function App(props) {
   return (
     <div>
-      <div className="card">
-        <div className="top">
-          <h2 className='name'>{props.name}</h2>
-          <Avatar imgURL={props.imgURL}/>
-        </div>
-        <div className="bottom">
-       <Info contact={props.contact} email={props.email} />
-        </div>
-      </div>
+    <h1>
+        <span>emojipedia</span>
+  </h1> 
+  <dl className="dictionary">
+     {emojipedias.map(creatEmoji)}
+  </dl>
     </div>
   );
 }
