@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-function App() {  
-  var set = new Date();
-var [time,setTime] = useState(set.getHours() + ":" + set.getMinutes() + ":" + set.getSeconds());
-function fetchTime(){
-  setTime(time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
-  setInterval(fetchTime, 1000);
+function App() {
+  let [count,setCount] = useState(0);
+
+  function increase(){
+    setCount(count + 1);
+  }
+  function decrease(){
+    setCount(count - 1);
+  }
+  function reset(){
+    setCount(count = 0)
+  }
+  return <div className="container">
+  <h1>{count}</h1>
+  <button onClick = {increase}>+</button>
+  <button onClick = {decrease}>-</button>
+  <button onClick = {reset}>0</button>
+</div>
 }
-  return (
-    <div className="container">
-      <h1>{time}</h1>
-      <button onClick={fetchTime}>Get Time</button>
-    </div>
-  );
-}
+
 export default App;
