@@ -1,15 +1,17 @@
-import React from "react";
-import Form from "./Form";
+import React, { useState } from "react";
 
-var userIsRegistered = true;
-
-function App() {
+function App() {  
+  var set = new Date();
+var [time,setTime] = useState(set.getHours() + ":" + set.getMinutes() + ":" + set.getSeconds());
+function fetchTime(){
+  setTime(time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
+  setInterval(fetchTime, 1000);
+}
   return (
     <div className="container">
-      <Form register={userIsRegistered} />
+      <h1>{time}</h1>
+      <button onClick={fetchTime}>Get Time</button>
     </div>
   );
 }
-
 export default App;
-
